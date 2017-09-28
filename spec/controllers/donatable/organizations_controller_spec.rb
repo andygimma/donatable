@@ -25,6 +25,7 @@ require 'spec_helper'
 
 module Donatable
   RSpec.describe OrganizationsController, type: :controller do
+    routes { Donatable::Engine.routes }
 
     # This should return the minimal set of attributes required to create a valid
     # Organization. As you add validations to Organization, be sure to

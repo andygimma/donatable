@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "organizations/show", type: :view do
+RSpec.describe "donatable/organizations/show", type: :view do
   before(:each) do
     @organization = assign(:organization, Donatable::Organization.create!(
       :name => "Name",

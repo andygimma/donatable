@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe "organizations/index", type: :view do
+RSpec.describe "donatable/organizations/index", type: :view do
   before(:each) do
     assign(:organizations, [
-      Organization.create!(
+      Donatable::Organization.create!(
         :name => "Name",
         :website => "Website",
         :twitter => "Twitter",
@@ -17,7 +17,7 @@ RSpec.describe "organizations/index", type: :view do
         :short_description => "Short Description",
         :long_description => "MyText"
       ),
-      Organization.create!(
+      Donatable::Organization.create!(
         :name => "Name",
         :website => "Website",
         :twitter => "Twitter",
