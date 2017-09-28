@@ -30,12 +30,12 @@
             </li>
           <% end %>
         <% end %>
-        <% if cookies[:locale].nil? || cookies[:locale] == 'es' %>
+        <% unless cookies[:locale] == 'en' %>
           <li class="nav-item">
             <%= link_to "English", params.permit(:locale).merge(locale: :en), class: 'nav-link' %>
           </li>
         <% end %>
-        <% if cookies[:locale] == 'en' %>
+        <% unless cookies[:locale] == 'es' %>
           <li class="nav-item">
             <%= link_to "Español", params.permit(:locale).merge(locale: :es), class: 'nav-link' %>
           </li>
