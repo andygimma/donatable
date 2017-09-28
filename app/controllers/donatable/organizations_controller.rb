@@ -3,6 +3,7 @@ require_dependency "donatable/application_controller"
 module Donatable
   class OrganizationsController < ApplicationController
     before_action :set_organization, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
     # GET /organizations
     def index
