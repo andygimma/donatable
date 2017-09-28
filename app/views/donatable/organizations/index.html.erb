@@ -2,18 +2,13 @@
     Organizations | Donatable
 <% end %>
 
-<% content_for :jumbotron do %>
-    <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Organizations</h1>
-          <p class="lead">
-            Information on what this page is and what the user can expect next.
-          </p>
-        </div>
-    </div>
-<% end %>
-
 <% content_for :main do %>
+<div class="col-12 col-md-12 pull-md-12 bd-content">
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" id="search" name="search" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
 <div class="col-12 col-md-12 pull-md-12 bd-content">
     <p id="notice"><%= notice %></p>
         <table class="table">
@@ -42,7 +37,7 @@
                     <%= link_to organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger table_action_btn' do %>
                         <i class="fa fa-ban"></i> <span>Delete</span>
                     <% end %>
-                </td>  
+                </td>
               </tr>
               <tr>
               </tr>

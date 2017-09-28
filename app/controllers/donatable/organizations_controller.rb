@@ -6,7 +6,11 @@ module Donatable
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
     # GET /organizations
     def index
-      @organizations = Organization.all
+      if params[:search]
+        @organizations = Organization.public_search(params[:search])
+      else
+        @organizations = Organization.all
+      end
     end
 
     # GET /organizations/1
