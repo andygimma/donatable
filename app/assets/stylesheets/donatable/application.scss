@@ -1,1 +1,147 @@
+/* ----------------------------- */
+/*        BUILDING BLOCKS        */
+/* ----------------------------- */
+
 @import "bootstrap";
+@import "modules/color_palette";
+@import "styles";
+
+/* ----------------------------- */
+/*         GLOBAL STYLES         */
+/* ----------------------------- */
+
+// containers
+.main {
+    margin-bottom: 20px;
+}
+.bd-content {
+    margin-bottom: 20px;
+}
+
+// header
+nav {
+    text-transform: uppercase;
+}
+.navbar-brand {
+    font-size: x-large;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        padding-top: 0;
+        padding-bottom:0;
+    }
+    .nav-item {
+        padding: 15px 15px 12px;
+        transition: .25s ease-in-out all;
+        color: $mono-1;
+        border-bottom: 3px solid transparent;
+        &:hover {
+            background-color: $orange-1;
+            border-bottom-color: $orange-2;
+        }
+    }
+    .nav-link {
+        transition: .25s ease-in-out color;
+    }
+    .nav-item:hover > .nav-link {
+        color: $mono-4!important;
+    }
+}
+
+// jumbotron
+.jumbotron {
+    background-color: $orange-1;
+    color: $mono-1;
+    border-radius: 0;
+    & a {
+        color: $blue-5
+    }
+}
+.lead {
+    color: $mono-2;
+}
+
+// typography
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+// alerts
+.alert {
+    width: 100%;
+}
+
+// links
+a {
+    color: $blue-4;
+    &:hover {
+        color: $blue-5;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+// forms
+.rounded-form {
+    float: left;
+    margin-top: 20px;
+    width: 50%;
+    & .simple_form {
+        & label {
+            font-weight: bold;
+            float: left;
+            clear:both;
+        }
+        & input {
+            float: left;
+            clear: both;
+            width: 100%;
+        }
+        & .button {
+            margin-top: 10px;
+            width: auto;
+        }
+    }
+}
+
+// footer
+footer {
+    padding: 25px;
+    background: $blue-2;
+    color: $blue-4;
+    & h4 {
+        color: $blue-5;
+    }
+    & .col {
+        border-right: 1px solid $blue-3;
+    }
+}
+#copyright {
+    background-color: $mono-1;
+    color: $mono-3;
+    padding: 10px;
+    & .col {
+        margin-top: 10px;
+    }
+    & .social {
+        text-align: center;
+        vertical-align: center;
+        & i {
+            color: $orange-2;
+            font-size: 30px;
+            background: #fff;
+            padding: 10px;
+            margin-left: 7.5px;
+            border-radius: 50%;
+            width: 50px;
+            vertical-align: center;
+            text-align: center;
+            transition: all ease-in-out .5s;
+        }
+        & i:hover {
+            background: $blue-3;
+            color: $mono-4;
+        }   
+    }
+}
