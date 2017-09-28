@@ -22,6 +22,9 @@
         <% if Rails.application.routes.url_helpers.method_defined?(:destroy_user_session_path) %>
           <% if current_user %>
             <li class="nav-item">
+              <%= link_to "Add Organization", '/organizations/new', class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
               <%= link_to "Log out", '/users/sign_out', class: 'nav-link', method: :delete %>
             </li>
           <% else %>
