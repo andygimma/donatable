@@ -5,11 +5,9 @@
 <% content_for :jumbotron do %>
     <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">Welcome</h1>
+          <h1 class="display-3"><%= t :welcome %></h1>
           <p class="lead">
-            This web application was created with
-            <%= link_to('Rails Composer', 'http://railsapps.github.io/rails-composer/') %>
-            from the <%= link_to('RailsApps project', 'http://railsapps.github.io/') %>.
+            <%= t :main_subheader %>
           </p>
         </div>
     </div>
