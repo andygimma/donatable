@@ -1,0 +1,50 @@
+/* ----------------------------- */
+/*          ORG INDEX            */
+/* ----------------------------- */
+
+.table_action_btn {
+    display: inline;
+    margin-right: 5px
+}
+
+@media screen and (max-width: 992px) {
+     .table_action_btn {
+         font-size: large;
+         & span {
+            display: none;
+         }   
+    }
+}
+
+@media screen and (max-width: 767px) {
+     .table_action_btn {
+         background-color: transparent!important;
+         padding: 0!important;
+         border: none;
+         & .fa-eye {
+             color: #30395C;
+         }
+         & .fa-pencil-square {
+             color: #F25800;
+         }
+         & .fa-ban {
+             color: #dc3545;
+         }
+    }
+    
+}
+
+/* ----------------------------- */
+/*       SHOW ORGANIZATION       */
+/* ----------------------------- */
+
+.org_info {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    & span {
+        text-transform: none;
+        color: $mono-2;
+        font-size: 1rem;
+        opacity: 0.75;
+    }
+}

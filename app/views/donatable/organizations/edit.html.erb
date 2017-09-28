@@ -1,6 +1,35 @@
-<h1>Editing Organization</h1>
+<% content_for :title do %>
+    Edit Organization | Donatable
+<% end %>
 
-<%= render 'form', organization: @organization %>
+<% content_for :jumbotron do %>
+    <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Edit Organization</h1>
+          <p class="lead">
+            Information on what this page is and how users can edit existing organizations
+          </p>
+        </div>
+    </div>
+<% end %>
 
-<%= link_to 'Show', @organization %> |
-<%= link_to 'Back', organizations_path %>
+<% content_for :main do %>
+    <div class="col-12 col-md-9 pull-md-3 bd-content">
+        <%= render 'form', organization: @organization %>
+    </div>
+    <div class="col-12 col-md-3 push-md-9 bd-sidebar">
+        <h3>More Info</h3>
+        <img src="http://via.placeholder.com/400x300" width="100%" height="auto" alt="placeholder" />
+        <hr/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <%#= render 'layouts/donatable/sidebar' %>
+        <%= link_to @organization, class: 'btn btn-primary btn-block' do %>
+            <i class="fa fa-eye"></i> View Org
+        <% end %>
+        <%= link_to organizations_path, class: 'btn btn-secondary btn-block' do %>
+            <i class="fa fa-arrow-circle-left"></i> Back to Orgs
+        <% end %>
+    </div>
+<% end %>
+
+        
