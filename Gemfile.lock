@@ -66,6 +66,7 @@ GEM
       railties (>= 3.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    high_voltage (3.0.0)
     i18n (0.8.6)
     loofah (2.1.1)
       crass (~> 1.0.2)
@@ -152,6 +153,7 @@ DEPENDENCIES
   capybara
   donatable!
   factory_girl_rails
+  high_voltage (~> 3.0.0)
   pg
   rspec-rails
 
