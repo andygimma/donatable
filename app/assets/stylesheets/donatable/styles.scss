@@ -2,6 +2,38 @@
 /*          ORG INDEX            */
 /* ----------------------------- */
 
+// search bar
+.org_search {
+    & input {
+        margin-bottom: 10px;
+        padding: 25px;
+        font-size: x-large;
+        color: $mono-2;
+    }
+    & .btn {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .org_search {
+        & input {
+            padding: 15px;
+            font-size: large;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .org_search {
+        & input {
+            padding: 15px;
+            font-size: small;
+        }
+    }
+}
+
+// org table
 .table_action_btn {
     display: inline;
     margin-right: 5px
@@ -24,7 +56,7 @@
          & .fa-eye {
              color: #30395C;
          }
-         & .fa-pencil-square {
+         & .fa-pencil {
              color: #F25800;
          }
          & .fa-ban {
