@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe "organizations/edit", type: :view do
   before(:each) do
-    @organization = assign(:organization, Organization.create!(
+    @organization = assign(:organization, Donatable::Organization.create!(
       :name => "MyString",
       :website => "MyString",
       :twitter => "MyString",
