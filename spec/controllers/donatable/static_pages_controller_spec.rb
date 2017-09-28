@@ -2,6 +2,7 @@ require 'spec_helper'
 
 module Donatable
   RSpec.describe StaticPagesController, type: :controller do
+    routes { Donatable::Engine.routes }
 
     describe "GET #home" do
       it "returns http success" do
