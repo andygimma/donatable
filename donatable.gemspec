@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = "donatable"
   s.version     = Donatable::VERSION
   s.authors     = ["andygimma"]
-  s.email       = ["andy.gimma@kiron.ngo"]
+  s.email       = ["andy.n.gimma@gmail.com"]
   # s.homepage    = "TODO"
   s.summary     = "Reusable donations engine"
   # s.description = "TODO: Description of Donatable."
@@ -22,10 +22,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency "capybara"
   s.add_development_dependency "factory_girl_rails"
   s.add_development_dependency "pg"
-  s.add_development_dependency 'bootstrap', '~> 4.0.0.beta'
-  s.add_development_dependency 'jquery-rails'
-  s.add_development_dependency 'faker'
-  s.add_development_dependency 'pry'
-
-
+  s.add_development_dependency "bootstrap", "~> 4.0.0.beta"
+  s.add_development_dependency "jquery-rails"
+  s.add_development_dependency "faker"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "pg_search"
 end
