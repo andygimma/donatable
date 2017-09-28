@@ -6,6 +6,7 @@
 @import "modules/color_palette";
 @import "styles";
 
+
 /* ----------------------------- */
 /*         GLOBAL STYLES         */
 /* ----------------------------- */
@@ -102,6 +103,27 @@ a {
     }
 }
 
+// buttons
+.btn {
+    padding: 12.5px;
+}
+.btn-primary {
+    background-color: $blue-2;
+    border-color: $blue-1;
+    &:hover {
+        background-color: $blue-3;
+        border-color: $blue-2;
+    }
+}
+.btn-warning {
+    background-color: $orange-2;
+    color: #fff;
+    &:hover {
+        background-color: $orange-1;
+        color: #fff;
+    }
+}
+
 // forms
 .rounded-form {
     float: left;
@@ -114,6 +136,7 @@ a {
     }
     & label {
         text-transform: uppercase;
+        font-size: 1.1rem;
         float: left;
         clear:both;
     }
@@ -122,6 +145,10 @@ a {
         clear: both;
         width: 100%;
     }
+    input {
+        height: 45px;
+        padding: 5px;
+    }
     & textarea {
         min-height: 200px;
     }
@@ -129,9 +156,6 @@ a {
         float: left;
         margin-top: 20px;
         width: 100%;
-        & button {
-        width: auto;
-        }
     }
 }
 
@@ -139,6 +163,11 @@ a {
     .rounded-form {
         width: 100%;
     }
+}
+
+// tables
+table {
+    width: 100%;
 }
 
 // footer
