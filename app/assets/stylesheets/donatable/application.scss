@@ -106,22 +106,38 @@ a {
 .rounded-form {
     float: left;
     margin-top: 20px;
-    width: 50%;
-    & .simple_form {
-        & label {
-            font-weight: bold;
-            float: left;
-            clear:both;
+    width: 75%;
+    & .field {
+        float: left;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    & label {
+        text-transform: uppercase;
+        float: left;
+        clear:both;
+    }
+    & input, textarea {
+        float: left;
+        clear: both;
+        width: 100%;
+    }
+    & textarea {
+        min-height: 200px;
+    }
+    & .actions {
+        float: left;
+        margin-top: 20px;
+        width: 100%;
+        & button {
+        width: auto;
         }
-        & input {
-            float: left;
-            clear: both;
-            width: 100%;
-        }
-        & .button {
-            margin-top: 10px;
-            width: auto;
-        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .rounded-form {
+        width: 100%;
     }
 }
 
