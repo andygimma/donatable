@@ -2,7 +2,14 @@ PATH
   remote: .
   specs:
     donatable (0.1.0)
+      bootstrap (~> 4.0.0.beta)
+      font-awesome-rails
+      jquery-rails
+      pg
+      pg_search
+      popper_js
       rails (~> 5.1.4)
+      tether-rails
 
 GEM
   remote: https://rubygems.org/
@@ -184,19 +191,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap (~> 4.0.0.beta)
   capybara
   donatable!
   factory_girl_rails
   faker
-  font-awesome-rails
-  jquery-rails
-  pg
-  pg_search
-  popper_js
   pry
   rspec-rails
-  tether-rails
 
 BUNDLED WITH
    1.15.4

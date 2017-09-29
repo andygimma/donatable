@@ -1,5 +1,11 @@
 require "donatable/engine"
 
 module Donatable
-  # Your code goes here...
+  require "pg"
+  require "bootstrap"
+  require "jquery-rails"
+  require "pg_search"
+  require "popper_js"
+  require "tether-rails"
+  require "font-awesome-rails"
 end
