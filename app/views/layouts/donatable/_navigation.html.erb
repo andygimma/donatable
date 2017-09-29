@@ -8,42 +8,58 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="<%= root_url %>">Donatable</a>
+      
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mr-auto mt-2 mt-md-0">
         <li class="nav-item active">
-          <a class="nav-link" href="<%= root_url %>">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<%= root_url %>">
+              <i class="fa fa-home"></i> Home
+                <!-- <span class="sr-only">(current)</span> -->
+            </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= about_path %>">About</a>
+            <a class="nav-link" href="<%= about_path %>">
+              <i class="fa fa-info-circle"></i> About
+            </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= organizations_path %>">Search</a>
+            <a class="nav-link" href="<%= organizations_path %>">
+                <i class="fa fa-search"></i> Search
+            </a>
         </li>
         <% if Rails.application.routes.url_helpers.method_defined?(:destroy_user_session_path) %>
           <% if current_user %>
-            <li class="nav-item">
-              <%= link_to "Add Organization", '/organizations/new', class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Log out", '/users/sign_out', class: 'nav-link', method: :delete %>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user"></i> Admin
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/organizations/new">
+                            <i class="fa fa-plus-circle"></i> Add Org
+                        </a>
+                        <a class="dropdown-item" href="/users/sign_out">
+                            <i class="fa fa-sign-out"></i> Logout
+                        </a>
+                    </div>
             </li>
           <% else %>
             <li class="nav-item">
-              <a class="nav-link" href="/users/sign_in">Login</a>
+              <a class="nav-link" href="/users/sign_in">
+                  <i class="fa fa-sign-in"></i> Login</a>
             </li>
           <% end %>
         <% end %>
+        </ul>
         <% unless cookies[:locale] == 'en' %>
-          <li class="nav-item">
-            <%= link_to "English", params.permit(:locale).merge(locale: :en), class: 'nav-link' %>
-          </li>
+            <a class="nav-link">
+                <%= link_to "English", params.permit(:locale).merge(locale: :en) %>
+            </a>
         <% end %>
         <% unless cookies[:locale] == 'es' %>
-          <li class="nav-item">
-            <%= link_to "Español", params.permit(:locale).merge(locale: :es), class: 'nav-link' %>
-          </li>
+            <a class="nav-link">
+                <%= link_to "Español", params.permit(:locale).merge(locale: :es) %>
+            </a>
         <% end %>
-      </ul>
-    </div>
-  </nav>
-</div>
+    </div> <!-- end navbar -->
+  </nav> <!-- end nav -->
+</div> <!-- end container -->

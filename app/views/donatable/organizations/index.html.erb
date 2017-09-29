@@ -1,14 +1,22 @@
 <% content_for :title do %>
-    Organizations | Donatable
+    Search Orgs | Donatable
+<% end %>
+
+<% content_for :jumbotron do %>
+    <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Search Organizations</h1>
+          <p class="lead">
+              <form class="form-group org_search">
+                <input class="form-control col-lg-10 col-md-10 col-sm-12" id="search" name="search" type="text" placeholder="Type keywords here and click button below to search" aria-label="Search" />
+                <button class="btn btn-secondary btn-block btn-lg" type="submit"><i class="fa fa-search"></i> Search</button>
+              </form>
+          </p>
+        </div>
+    </div>
 <% end %>
 
 <% content_for :main do %>
-<div class="col-12 col-md-12 pull-md-12 bd-content">
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" id="search" name="search" type="text" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</div>
 <div class="col-12 col-md-12 pull-md-12 bd-content">
     <p id="notice"><%= notice %></p>
         <table class="table">
@@ -28,13 +36,13 @@
                 <td><%= organization.website %></td>
                 <td><%= organization.short_description %></td>
                 <td>
-                    <%= link_to organization, class: 'btn btn-primary table_action_btn' do %>
+                    <%= link_to organization, class: 'btn btn-primary table_action_btn btn-sm' do %>
                     <i class="fa fa-eye"></i> <span>View</span>
                     <% end %>
-                    <%= link_to edit_organization_path(organization), class: 'btn btn-warning table_action_btn' do %>
-                    <i class="fa fa-pencil-square"></i> <span>Edit</span>
+                    <%= link_to edit_organization_path(organization), class: 'btn btn-warning table_action_btn btn-sm' do %>
+                    <i class="fa fa-pencil"></i> <span>Edit</span>
                     <% end %>
-                    <%= link_to organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger table_action_btn' do %>
+                    <%= link_to organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger table_action_btn btn-sm' do %>
                         <i class="fa fa-ban"></i> <span>Delete</span>
                     <% end %>
                 </td>
