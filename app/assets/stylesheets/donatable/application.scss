@@ -5,7 +5,7 @@
 @import "bootstrap";
 @import "modules/color_palette";
 @import "styles";
-
+@import "font-awesome";
 
 /* ----------------------------- */
 /*         GLOBAL STYLES         */
@@ -222,6 +222,6 @@ footer {
         & i:hover {
             background: $orange-2;
             color: $mono-4;
-        }   
+        }
     }
 }
