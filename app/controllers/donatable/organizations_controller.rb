@@ -3,7 +3,7 @@ require_dependency "donatable/application_controller"
 module Donatable
   class OrganizationsController < ApplicationController
     before_action :set_organization, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+    before_action :auth, only: [:new, :create, :edit, :update, :destroy]
     # GET /organizations
     def index
       if params[:search]
@@ -56,6 +56,18 @@ module Donatable
       # Use callbacks to share common setup or constraints between actions.
       def set_organization
         @organization = Organization.find(params[:id])
+      end
+
+      def auth
+        unless defined? current_user
+          redirect_back(fallback_location: root_path)
+          return
+        end
+
+        if current_user.nil?
+          redirect_back(fallback_location: root_path)
+          return
+        end
       end
 
       # Only allow a trusted parameter "white list" through.
