@@ -10,6 +10,13 @@ module Donatable
     def index
       if params[:search]
         @organizations = Organization.public_search(params[:search])
+      elsif params[:tag]
+        sql = "SELECT taggable_id FROM taggings WHERE taggable_type='Donatable::Organization' AND tag_id IN (SELECT id FROM tags WHERE name='#{params[:tag]}');"
+        org_ids = []
+        ActiveRecord::Base.connection.select_all(sql).each do |org|
+          org_ids << org['taggable_id']
+        end
+        @organizations = Organization.find(org_ids)
       else
         @organizations = Organization.all
       end
