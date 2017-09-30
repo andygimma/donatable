@@ -17,6 +17,7 @@
     <div class="col-12 col-md-9 pull-md-3 bd-content">
         <p id="notice"><%= notice %></p>
 
+        <%= image_tag @organization.main_image(:medium), alt: 'Organization main image' %>
         <p class="org_info">
           Name:<br>
           <span><%= @organization.name %></span>

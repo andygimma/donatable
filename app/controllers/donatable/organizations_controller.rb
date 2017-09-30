@@ -4,6 +4,8 @@ module Donatable
   class OrganizationsController < ApplicationController
     before_action :set_organization, only: [:show, :edit, :update, :destroy]
     before_action :auth, only: [:new, :create, :edit, :update, :destroy]
+    # before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+
     # GET /organizations
     def index
       if params[:search]
@@ -72,7 +74,11 @@ module Donatable
 
       # Only allow a trusted parameter "white list" through.
       def organization_params
-        params.require(:organization).permit(:name, :website, :twitter, :facebook, :phone, :city, :state_or_district, :country, :banner_url, :logo_url, :short_description, :long_description, :tag_list, :email, :youtube_url)
+        params.require(:organization).permit(:name, :website, :twitter, :facebook, :phone, :city, :state_or_district, :country, :banner_url, :logo_url, :short_description, :long_description, :tag_list, :email, :youtube_url, :main_image)
+      end
+
+      def set_s3_direct_post
+        @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
       end
   end
 end

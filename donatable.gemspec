@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "factory_girl_rails"
   s.add_development_dependency "faker"
   s.add_development_dependency "pry"
+  # s.add_development_dependency "figaro"
 
   s.add_dependency "pg"
   s.add_dependency "bootstrap", "~> 4.0.0.beta"
@@ -33,4 +34,6 @@ Gem::Specification.new do |s|
   s.add_dependency "font-awesome-rails"
   s.add_dependency "friendly_id", "~> 5.1.0"
   s.add_dependency "acts-as-taggable-on", "~> 4.0"
+  s.add_dependency "paperclip", "~> 5.0.0"
+  s.add_dependency "aws-sdk", "~> 2"
 end
