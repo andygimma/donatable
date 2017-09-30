@@ -32,4 +32,5 @@ Gem::Specification.new do |s|
   s.add_dependency "tether-rails"
   s.add_dependency "font-awesome-rails"
   s.add_dependency "friendly_id", "~> 5.1.0"
+  s.add_dependency "acts-as-taggable-on", "~> 4.0"
 end
