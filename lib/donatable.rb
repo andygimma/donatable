@@ -8,4 +8,5 @@ module Donatable
   require "popper_js"
   require "tether-rails"
   require "font-awesome-rails"
+  require "friendly_id"
 end
