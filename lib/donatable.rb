@@ -9,4 +9,5 @@ module Donatable
   require "tether-rails"
   require "font-awesome-rails"
   require "friendly_id"
+  require "acts-as-taggable-on"
 end

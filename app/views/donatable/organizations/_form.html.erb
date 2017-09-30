@@ -21,6 +21,22 @@
     <%= form.text_field :website, id: :organization_website %>
   </div>
 
+
+  <div class="field">
+    <%= form.label :tag_list %><br>
+    <%= form.text_field :tag_list, value: organization.tag_list.join(', ') %>
+  </div>
+
+  <div class="field">
+    <%= form.label :short_description %><br>
+    <%= form.text_field :short_description, id: :organization_short_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :long_description %><br>
+    <%= form.text_area :long_description, id: :organization_long_description %>
+  </div>
+
   <div class="field">
     <%= form.label :twitter %><br>
     <%= form.text_field :twitter, id: :organization_twitter %>
@@ -59,16 +75,6 @@
   <div class="field">
     <%= form.label :logo_url %><br>
     <%= form.text_field :logo_url, id: :organization_logo_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :short_description %><br>
-    <%= form.text_field :short_description, id: :organization_short_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :long_description %><br>
-    <%= form.text_area :long_description, id: :organization_long_description %>
   </div>
 
   <div class="actions">
