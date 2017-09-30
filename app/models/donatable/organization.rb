@@ -2,9 +2,12 @@ module Donatable
   class Organization < ApplicationRecord
     include PgSearch
     extend FriendlyId
-    
+
     friendly_id :name, use: :slugged
-    pg_search_scope :public_search, :against => [:name, :short_description, :long_description]
+    pg_search_scope :public_search,
+                    :against => [:name, :short_description, :long_description],
+                    :using => :dmetaphone
+
     validates :name, presence: true
     validates :website, presence: true
     validates :short_description, presence: true
