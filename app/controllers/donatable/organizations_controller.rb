@@ -72,7 +72,7 @@ module Donatable
 
       # Only allow a trusted parameter "white list" through.
       def organization_params
-        params.require(:organization).permit(:name, :website, :twitter, :facebook, :phone, :city, :state_or_district, :country, :banner_url, :logo_url, :short_description, :long_description, :tag_list)
+        params.require(:organization).permit(:name, :website, :twitter, :facebook, :phone, :city, :state_or_district, :country, :banner_url, :logo_url, :short_description, :long_description, :tag_list, :email, :youtube_url)
       end
   end
 end
