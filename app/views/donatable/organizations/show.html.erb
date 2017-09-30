@@ -5,9 +5,9 @@
 <% content_for :jumbotron do %>
     <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">View Organization</h1>
+          <h1 class="display-3"><%= @organization.name %></h1>
           <p class="lead">
-            Information on what this page is goes here
+            <%= @organization.short_description %>
           </p>
         </div>
     </div>
@@ -18,14 +18,15 @@
         <p id="notice"><%= notice %></p>
 
         <%= image_tag @organization.main_image(:medium), alt: 'Organization main image' %>
+
         <p class="org_info">
-          Name:<br>
-          <span><%= @organization.name %></span>
+          Long description:<br>
+          <span><%= @organization.long_description %></span>
         </p>
 
         <p class="org_info">
           Website:<br>
-          <span><%= @organization.website %></span>
+          <span><a href="<%= @organization.website %>"><%= @organization.website %></a></span>
         </p>
 
         <p class="org_info">
@@ -69,13 +70,13 @@
         </p>
 
         <p class="org_info">
-          Short description:<br>
-          <span><%= @organization.short_description %></span>
+          Email:<br>
+          <span><%= @organization.email %></span>
         </p>
 
         <p class="org_info">
-          Long description:<br>
-          <span><%= @organization.long_description %></span>
+          Youtube:<br>
+          <span><%= @organization.youtube_url %></span>
         </p>
     </div>
     <div class="col-12 col-md-3 push-md-9 bd-sidebar">
@@ -84,8 +85,12 @@
         <hr/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <%#= render 'layouts/donatable/sidebar' %>
-        <%= link_to edit_organization_path(@organization), class: 'btn btn-warning btn-block' do %>
-            <i class="fa fa-pencil"></i> Edit Org
+        <% if Rails.application.routes.url_helpers.method_defined?(:destroy_user_session_path) %>
+          <% if current_user %>
+            <%= link_to edit_organization_path(@organization), class: 'btn btn-warning btn-block' do %>
+                <i class="fa fa-pencil"></i> Edit Org
+            <% end %>
+          <% end %>
         <% end %>
         <%= link_to organizations_path, class: 'btn btn-secondary btn-block' do %>
             <i class="fa fa-arrow-circle-left"></i> Back to Search

@@ -7,7 +7,7 @@
         <div class="container">
           <h1 class="display-3">New Organization</h1>
           <p class="lead">
-            Information on what this page is and how users can create new organizations
+            Create a new organization to add to this donations drive.
           </p>
         </div>
     </div>
@@ -15,9 +15,7 @@
 
 <% content_for :main do %>
     <div class="col-12 col-md-9 pull-md-3 bd-content">
-
-        <%= render 'form', organization: @organization %>    
-        
+        <%= render 'form', organization: @organization %>
     </div>
     <div class="col-12 col-md-3 push-md-9 bd-sidebar">
         <h3>More Info</h3>
@@ -28,5 +26,5 @@
         <%= link_to organizations_path, class: 'btn btn-secondary btn-block' do %>
             <i class="fa fa-arrow-circle-left"></i> Back to Search
         <% end %>
-    </div>    
+    </div>
 <% end %>
