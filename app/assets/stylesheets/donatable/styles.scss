@@ -91,6 +91,7 @@ a.skip-to {
     z-index:-999;
 }
 a.skip-to:focus, a.skip-to-main:active {
+    text-align: center;
     left: 0;
     width: 10%;
     height: auto;
