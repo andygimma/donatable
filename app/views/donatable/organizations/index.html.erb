@@ -26,38 +26,22 @@
                 <th>Name</th>
                 <th>Website</th>
                 <th>Short description</th>
-                <th>Action</th>
+                <th>Tags</th>
             </tr>
           </thead>
 
           <tbody>
             <% @organizations.each do |organization| %>
               <tr>
-                <td><%= organization.name %></td>
+                <td><%= link_to organization.name, organization_path(organization) %></td>
                 <td><%= organization.website %></td>
                 <td><%= organization.short_description %></td>
-                <td>
-                    <%= link_to organization, class: 'btn btn-primary table_action_btn btn-sm' do %>
-                      <i class="fa fa-eye"></i> <span>View</span>
-                    <% end %>
-                    <%= link_to edit_organization_path(organization), class: 'btn btn-warning table_action_btn btn-sm' do %>
-                      <i class="fa fa-pencil"></i> <span>Edit</span>
-                    <% end %>
-                    <%= link_to organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger table_action_btn btn-sm' do %>
-                        <i class="fa fa-ban"></i> <span>Delete</span>
-                    <% end %>
-                </td>
+                <td><%= organization.tag_list %></td>
               </tr>
               <tr>
               </tr>
             <% end %>
           </tbody>
         </table>
-
-        <br>
-
-        <%= link_to new_organization_path, class: 'btn btn-success' do %>
-            <i class="fa fa-plus-circle"></i> New Organization
-        <% end %>
 </div>
 <% end %>
