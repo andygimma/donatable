@@ -80,3 +80,23 @@
         opacity: 0.75;
     }
 }
+
+a.skip-to {
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+a.skip-to:focus, a.skip-to-main:active {
+    left: 0;
+    width: 10%;
+    height: auto;
+    overflow:auto;
+    margin: 10px 35%;
+    margin-left: 20px;
+    z-index:999;
+    color: #605f5f;
+}
