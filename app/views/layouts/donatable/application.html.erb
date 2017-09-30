@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= cookies[:locale] || "es" %>">
 <head>
   <title><%= content_for?(:title) ? yield(:title) : "Donatable" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Donatable" %>">
@@ -58,9 +58,9 @@
                     <p><b>Lorem ipsum dolor sit amet</b>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <div class="col col-sm-12 col-md-4 col-lg-4 social">
-                    <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
-                    <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                    <a href="#"><i class="fa fa-github fa-2x"></i></a>
+                    <a tabindex="0"><i class="fa fa-facebook fa-2x"></i></a>
+                    <a tabindex="0"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a tabindex="0"><i class="fa fa-github fa-2x"></i></a>
                 </div>
             </div>
         </div>

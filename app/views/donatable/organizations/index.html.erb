@@ -37,10 +37,10 @@
                 <td><%= organization.short_description %></td>
                 <td>
                     <%= link_to organization, class: 'btn btn-primary table_action_btn btn-sm' do %>
-                    <i class="fa fa-eye"></i> <span>View</span>
+                      <i class="fa fa-eye"></i> <span>View</span>
                     <% end %>
                     <%= link_to edit_organization_path(organization), class: 'btn btn-warning table_action_btn btn-sm' do %>
-                    <i class="fa fa-pencil"></i> <span>Edit</span>
+                      <i class="fa fa-pencil"></i> <span>Edit</span>
                     <% end %>
                     <%= link_to organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger table_action_btn btn-sm' do %>
                         <i class="fa fa-ban"></i> <span>Delete</span>
