@@ -101,3 +101,10 @@ a.skip-to:focus, a.skip-to-main:active {
     z-index:999;
     color: #605f5f;
 }
+
+.tag {
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  background-color: $orange-1;
+}

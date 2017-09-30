@@ -85,6 +85,12 @@
         <hr/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <%#= render 'layouts/donatable/sidebar' %>
+        <hr/>
+        <h4>Similar Organizations</h4>
+        <% @organization.find_related_tags.each do |organization| %>
+          <%= link_to organization.name, organization_path(organization) %> <br/>
+        <% end %>
+        <hr/>
         <% if Rails.application.routes.url_helpers.method_defined?(:destroy_user_session_path) %>
           <% if current_user %>
             <%= link_to edit_organization_path(@organization), class: 'btn btn-warning btn-block' do %>
