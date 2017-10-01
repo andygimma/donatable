@@ -36,4 +36,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'acts-as-taggable-on', '~> 4.0'
   s.add_dependency 'paperclip', '~> 5.0.0'
   s.add_dependency 'aws-sdk', '~> 2'
+  s.add_dependency 'will_paginate', '~> 3.1.0'
 end

@@ -8,7 +8,8 @@ module Donatable
     # GET /organizations
     def index
       if params[:search]
-        @organizations = Organization.public_search(params[:search])
+        @organizations = Organization.public_search(params[:search]).paginate(:page => params[:page])
+
       elsif params[:tag]
         sql = """SELECT taggable_id FROM taggings
                  WHERE taggable_type='Donatable::Organization'
@@ -18,9 +19,9 @@ module Donatable
         ActiveRecord::Base.connection.select_all(sql).each do |org|
           org_ids << org['taggable_id']
         end
-        @organizations = Organization.find(org_ids)
+        @organizations = Organization.find(org_ids).paginate(:page => params[:page])
       else
-        @organizations = Organization.all
+        @organizations = Organization.all.paginate(:page => params[:page])
       end
     end
 

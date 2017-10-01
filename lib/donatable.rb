@@ -12,4 +12,5 @@ module Donatable
   require 'acts-as-taggable-on'
   require 'paperclip'
   require 'aws-sdk'
+  require 'will_paginate'
 end
