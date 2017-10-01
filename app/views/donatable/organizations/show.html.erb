@@ -18,6 +18,7 @@
         <p id="notice"><%= notice %></p>
 
         <%= image_tag @organization.main_image(:medium), alt: 'Organization main image' %>
+        <%= image_tag @organization.logo_image(:logo), alt: 'Organization logo' %>
 
         <p class="org_info">
           Long description:<br>
@@ -57,16 +58,6 @@
         <p class="org_info">
           Country:<br>
           <span><%= @organization.country %></span>
-        </p>
-
-        <p class="org_info">
-          Banner url:<br>
-          <span><%= @organization.banner_url %></span>
-        </p>
-
-        <p class="org_info">
-          Logo url:<br>
-          <span><%= @organization.logo_url %></span>
         </p>
 
         <p class="org_info">
