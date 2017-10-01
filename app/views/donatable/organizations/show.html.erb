@@ -17,8 +17,8 @@
     <div class="col-12 col-md-9 pull-md-3 bd-content">
         <p id="notice"><%= notice %></p>
 
-        <%= image_tag @organization.main_image(:medium), alt: 'Organization main image' %>
-        <%= image_tag @organization.logo_image(:logo), alt: 'Organization logo' %>
+        <%= image_tag @organization.main_image(:medium), alt: 'Organization main image', tabindex: 0 %>
+        <%= image_tag @organization.logo_image(:logo), alt: 'Organization logo', tabindex: 0 %>
 
         <p class="org_info">
           Long description:<br>

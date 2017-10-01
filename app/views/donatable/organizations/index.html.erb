@@ -33,7 +33,7 @@
           <tbody>
             <% @organizations.each do |organization| %>
               <tr>
-                <td><%= image_tag organization.logo_image(:logo), alt: 'Organization logo' %></td>
+                <td><%= image_tag organization.logo_image(:logo), alt: 'Organization logo', tabindex: 0 %></td>
                 <td><%= link_to organization.name, organization_path(organization) %></td>
                 <td><%= organization.website %></td>
                 <td><%= organization.short_description %></td>
