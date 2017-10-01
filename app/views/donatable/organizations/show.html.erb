@@ -83,7 +83,7 @@
         <% end %>
         <hr/>
         <% if Rails.application.routes.url_helpers.method_defined?(:destroy_user_session_path) %>
-          <% if current_user %>
+          <% if current_user && current_user.id == @organization.id %>
             <%= link_to edit_organization_path(@organization), class: 'btn btn-warning btn-block' do %>
                 <i class="fa fa-pencil"></i> Edit Org
             <% end %>
