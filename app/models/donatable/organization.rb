@@ -6,8 +6,8 @@ module Donatable
 
     friendly_id :name, use: :slugged
     pg_search_scope :public_search,
-                    :against => [:name, :short_description, :long_description],
-                    :using => :dmetaphone
+                    against: [:name, :short_description, :long_description],
+                    using: :dmetaphone
 
     acts_as_taggable_on :tags
 
@@ -19,7 +19,7 @@ module Donatable
     validates_uniqueness_of :name
     validates_uniqueness_of :website
 
-    has_attached_file :main_image, styles: { medium: "300x300>", thumb: "100x100>" }
-    validates_attachment_content_type :main_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+    has_attached_file :main_image, styles: { medium: '300x300>', thumb: '100x100>' }
+    validates_attachment_content_type :main_image, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
   end
 end

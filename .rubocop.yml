@@ -1,0 +1,23 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+    - lib/**/*.rake
+  Exclude:
+    - spec/dummy/*.rb
+    - spec/dummy/**/*.rb
+    - spec/dummy/**/**/*
+    - db/migrate/*.rb
+    - config/initializers/*.rb
+    - test/*.rb
+    - test/**/*.rb
+    - Rakefile
+
+Metrics/LineLength:
+  Max: 100
+
+Style/EmptyMethod:
+  Enabled: false
+
+Documentation:
+  Enabled: false

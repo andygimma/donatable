@@ -1,4 +1,4 @@
-require_dependency "donatable/application_controller"
+require_dependency 'donatable/application_controller'
 
 module Donatable
   class StaticPagesController < ApplicationController

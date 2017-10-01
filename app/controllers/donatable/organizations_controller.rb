@@ -1,17 +1,19 @@
-require_dependency "donatable/application_controller"
+require_dependency 'donatable/application_controller'
 
 module Donatable
   class OrganizationsController < ApplicationController
     before_action :set_organization, only: [:show, :edit, :update, :destroy]
     before_action :auth, only: [:new, :create, :edit, :update, :destroy]
-    # before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
     # GET /organizations
     def index
       if params[:search]
         @organizations = Organization.public_search(params[:search])
       elsif params[:tag]
-        sql = "SELECT taggable_id FROM taggings WHERE taggable_type='Donatable::Organization' AND tag_id IN (SELECT id FROM tags WHERE name='#{params[:tag]}');"
+        sql = """SELECT taggable_id FROM taggings
+                 WHERE taggable_type='Donatable::Organization'
+                 AND tag_id IN (SELECT id FROM tags WHERE name='#{params[:tag]}');
+              """
         org_ids = []
         ActiveRecord::Base.connection.select_all(sql).each do |org|
           org_ids << org['taggable_id']
@@ -62,30 +64,31 @@ module Donatable
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_organization
-        @organization = Organization.friendly.find(params[:id])
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_organization
+      @organization = Organization.friendly.find(params[:id])
+    end
+
+    def auth
+      unless defined? current_user
+        redirect_back(fallback_location: root_path)
+        return
       end
 
-      def auth
-        unless defined? current_user
-          redirect_back(fallback_location: root_path)
-          return
-        end
-
-        if current_user.nil?
-          redirect_back(fallback_location: root_path)
-          return
-        end
+      if current_user.nil?
+        redirect_back(fallback_location: root_path)
+        return
       end
+    end
 
-      # Only allow a trusted parameter "white list" through.
-      def organization_params
-        params.require(:organization).permit(:name, :website, :twitter, :facebook, :phone, :city, :state_or_district, :country, :banner_url, :logo_url, :short_description, :long_description, :tag_list, :email, :youtube_url, :main_image)
-      end
-
-      def set_s3_direct_post
-        @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
-      end
+    # Only allow a trusted parameter "white list" through.
+    def organization_params
+      params.require(:organization).permit(:name, :website, :twitter, :facebook,
+                                           :phone, :city, :state_or_district, :country,
+                                           :banner_url, :logo_url, :short_description,
+                                           :long_description, :tag_list, :email, :youtube_url,
+                                           :main_image)
+    end
   end
 end
