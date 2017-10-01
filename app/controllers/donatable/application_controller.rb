@@ -1,5 +1,6 @@
 module Donatable
   class ApplicationController < ActionController::Base
+    ActsAsTaggableOn.force_lowercase = true
     protect_from_forgery with: :exception
     before_action :set_locale
 
