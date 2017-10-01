@@ -21,5 +21,8 @@ module Donatable
 
     has_attached_file :main_image, styles: { medium: '300x300>', thumb: '100x100>' }
     validates_attachment_content_type :main_image, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+    
+    has_attached_file :logo_image, styles: { logo: '80x80' }
+    validates_attachment_content_type :logo_image, content_type: ['image/jpg', 'image/jpeg', 'image/png']
   end
 end

@@ -88,7 +88,7 @@ module Donatable
                                            :phone, :city, :state_or_district, :country,
                                            :banner_url, :logo_url, :short_description,
                                            :long_description, :tag_list, :email, :youtube_url,
-                                           :main_image)
+                                           :main_image, :logo_image)
     end
   end
 end

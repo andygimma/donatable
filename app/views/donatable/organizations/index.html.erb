@@ -22,6 +22,7 @@
         <table class="table">
           <thead class="thead-default">
             <tr>
+                <th>Logo</th>
                 <th>Name</th>
                 <th>Website</th>
                 <th>Short description</th>
@@ -32,6 +33,7 @@
           <tbody>
             <% @organizations.each do |organization| %>
               <tr>
+                <td><%= image_tag organization.logo_image(:logo), alt: 'Organization logo' %></td>
                 <td><%= link_to organization.name, organization_path(organization) %></td>
                 <td><%= organization.website %></td>
                 <td><%= organization.short_description %></td>
