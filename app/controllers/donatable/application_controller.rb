@@ -12,6 +12,7 @@ module Donatable
         redirect_back(fallback_location: root_path)
       end
       cookies[:locale] = params[:locale] || cookies[:locale] || I18n.default_locale
+      cookies[:locale] = cookies[:locale].to_sym
       I18n.default_locale = cookies[:locale]
     end
   end
