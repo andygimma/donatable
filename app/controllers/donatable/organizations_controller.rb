@@ -8,7 +8,7 @@ module Donatable
     # GET /organizations
     def index
       if params[:search]
-        @organizations = Organization.public_search(params[:search])
+        @organizations = Organization.public_search(params[:search]).page params[:page]
 
       elsif params[:tag]
         sql = """SELECT taggable_id FROM taggings
