@@ -48,7 +48,7 @@
           <% end %>
         <% end %>
         </ul>
-        <% unless cookies[:locale] == 'en' && cookies[:local] != nil %>
+        <% unless cookies[:locale] == 'en' %>
             <a class="nav-link">
                 <%= link_to "English", params.permit(:locale).merge(locale: :en) %>
             </a>
