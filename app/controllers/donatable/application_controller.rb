@@ -3,6 +3,7 @@ module Donatable
     ActsAsTaggableOn.force_lowercase = true
     protect_from_forgery with: :exception
     before_action :set_locale
+    before_action :set_current_user
 
     private
 
@@ -14,6 +15,10 @@ module Donatable
       cookies[:locale] = params[:locale] || cookies[:locale] || I18n.default_locale
       cookies[:locale] = cookies[:locale].to_sym
       I18n.default_locale = cookies[:locale]
+    end
+
+    def set_current_user
+      @current_user = current_user
     end
   end
 end
