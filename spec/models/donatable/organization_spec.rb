@@ -7,10 +7,15 @@ module Donatable
       expect(FactoryGirl.build(:donatable_organization)).to be_valid
     end
 
-    # it 'is invalid without a name' do
-    #   sheet = FactoryGirl.build(:donatable_organization, name: nil)
-    #   expect(sheet).not_to be_valid
-    # end
+    it 'is invalid without a name' do
+      sheet = FactoryGirl.build(:donatable_organization, name: nil)
+      expect(sheet).not_to be_valid
+    end
+
+    it 'is invalid without a language' do
+      sheet = FactoryGirl.build(:donatable_organization, language: nil)
+      expect(sheet).not_to be_valid
+    end
 
     it 'is invalid without a website' do
       sheet = FactoryGirl.build(:donatable_organization, website: nil)
