@@ -12,6 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :language %><br>
+    <%= form.select :language, [ 'es', 'en'], :prompt => 'Select One' %>
+
+  </div>
+
+
+  <div class="field">
     <%= form.label :name %><br>
     <%= form.text_field :name, id: :organization_name %>
   </div>

@@ -8,7 +8,7 @@ module Donatable
     # GET /organizations
     def index
       if params[:search]
-        @organizations = Organization.public_search(params[:search]).page params[:page]
+        @organizations = Organization.public_search(params[:search]).where(language: cookies[:locale].to_s).page params[:page]
 
       elsif params[:tag]
         sql = """SELECT taggable_id FROM taggings
@@ -19,11 +19,11 @@ module Donatable
         ActiveRecord::Base.connection.select_all(sql).each do |org|
           org_ids << org['taggable_id']
         end
-        @organizations = Kaminari.paginate_array(Organization.find(org_ids)).page(params[:page])
+        @organizations = Kaminari.paginate_array(Organization.where(language: cookies[:locale].to_s).find(org_ids)).page(params[:page])
 
 
       else
-        @organizations = Organization.all.page params[:page]
+        @organizations = Organization.where(language: cookies[:locale]).page params[:page]
       end
     end
 
@@ -108,7 +108,7 @@ module Donatable
                                            :phone, :city, :state_or_district, :country,
                                            :banner_url, :logo_url, :short_description,
                                            :long_description, :tag_list, :email, :youtube_url,
-                                           :main_image, :logo_image)
+                                           :main_image, :logo_image, :language)
     end
   end
 end

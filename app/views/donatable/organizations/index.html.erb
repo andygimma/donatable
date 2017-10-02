@@ -24,6 +24,7 @@
             <tr>
                 <th>Logo</th>
                 <th>Name</th>
+                <th>Language</th>
                 <th>Website</th>
                 <th>Short description</th>
                 <th>Tags</th>
@@ -35,6 +36,7 @@
               <tr>
                 <td><%= image_tag organization.logo_image(:logo), alt: 'Organization logo', tabindex: 0 %></td>
                 <td><%= link_to organization.name, organization_path(organization) %></td>
+                <td><%= organization.language %></td>
                 <td><%= organization.website %></td>
                 <td><%= organization.short_description %></td>
                 <td>

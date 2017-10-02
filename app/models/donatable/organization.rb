@@ -10,8 +10,6 @@ module Donatable
                     against: [:name, :short_description, :long_description],
                     using: :dmetaphone
 
-    paginates_per 5
-
     validates :name, presence: true
     validates :website, presence: true
     validates :short_description, presence: true
