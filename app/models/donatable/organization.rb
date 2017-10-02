@@ -25,6 +25,8 @@ module Donatable
     has_attached_file :logo_image, styles: { logo: '80x80' }
     validates_attachment_content_type :logo_image, content_type: ['image/jpg', 'image/jpeg', 'image/png']
 
+    paginates_per 5
+    
     private
 
     def combine_name_and_language
