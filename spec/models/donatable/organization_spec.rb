@@ -12,6 +12,11 @@ module Donatable
       expect(sheet).not_to be_valid
     end
 
+    it 'is invalid without a language' do
+      sheet = FactoryGirl.build(:donatable_organization, language: nil)
+      expect(sheet).not_to be_valid
+    end
+
     it 'is invalid without a website' do
       sheet = FactoryGirl.build(:donatable_organization, website: nil)
       expect(sheet).not_to be_valid
@@ -27,19 +32,43 @@ module Donatable
       expect(sheet).not_to be_valid
     end
 
-    it 'is invalid without a unique name' do
+    it 'is valid without a unique name if the languages are different' do
       same_name = 'same_name'
-      sheet1 = FactoryGirl.create(:donatable_organization, name: same_name)
-      sheet2 = FactoryGirl.build(:donatable_organization, name: same_name)
+      lang1 = 'es'
+      lang2 = 'en'
+      sheet1 = FactoryGirl.create(:donatable_organization, name: same_name, language: lang1)
+      sheet2 = FactoryGirl.build(:donatable_organization, name: same_name, language: lang2)
+
+      expect(sheet1).to be_valid
+      expect(sheet2).to be_valid
+    end
+
+    it 'is invalid without a unique name for a given language' do
+      same_name = 'same_name'
+      lang = 'es'
+      sheet1 = FactoryGirl.create(:donatable_organization, name: same_name, language: lang)
+      sheet2 = FactoryGirl.build(:donatable_organization, name: same_name, language: lang)
 
       expect(sheet1).to be_valid
       expect(sheet2).not_to be_valid
     end
 
-    it 'is invalid without a unique website' do
+    it 'is valid without a unique websitewebsite if the languages are different' do
+      same_site = 'same_site'
+      lang1 = 'es'
+      lang2 = 'en'
+      sheet1 = FactoryGirl.create(:donatable_organization, website: same_site, language: lang1)
+      sheet2 = FactoryGirl.build(:donatable_organization, website: same_site, language: lang2)
+
+      expect(sheet1).to be_valid
+      expect(sheet2).to be_valid
+    end
+
+    it 'is invalid without a unique website for a given language' do
       website = 'website'
-      sheet1 = FactoryGirl.create(:donatable_organization, name: website)
-      sheet2 = FactoryGirl.build(:donatable_organization, name: website)
+      lang = 'es'
+      sheet1 = FactoryGirl.create(:donatable_organization, name: website, language: lang)
+      sheet2 = FactoryGirl.build(:donatable_organization, name: website, language: lang)
 
       expect(sheet1).to be_valid
       expect(sheet2).not_to be_valid

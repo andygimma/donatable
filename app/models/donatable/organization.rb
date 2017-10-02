@@ -14,6 +14,7 @@ module Donatable
     validates :website, presence: true
     validates :short_description, presence: true
     validates :long_description, presence: true
+    validates :language, presence: true
 
     validates_uniqueness_of :name, scope: :language
     validates_uniqueness_of :website, scope: :language
@@ -27,7 +28,7 @@ module Donatable
     private
 
     def combine_name_and_language
-      self.name + '-' + self.language
+      self.name.to_s + '-' + self.language.to_s
     end
   end
 end

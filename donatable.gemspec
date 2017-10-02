@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'faker'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'simplecov'
 
   s.add_dependency 'pg'
   s.add_dependency 'bootstrap', '~> 4.0.0.beta'
