@@ -3,8 +3,8 @@ require_dependency 'donatable/application_controller'
 module Donatable
   class OrganizationsController < ApplicationController
     before_action :set_organization, only: [:show, :edit, :update, :destroy]
-    before_action :auth, only: [:new, :create]
-    before_action :auth_edit, only: [:edit, :update, :destroy]
+    before_action :auth, only: [:new, :create, :edit, :update, :destroy]
+    # before_action :auth_edit, only: [:edit, :update, :destroy]
     # GET /organizations
     def index
       if params[:search]
@@ -86,21 +86,21 @@ module Donatable
       end
     end
 
-    def auth_edit
-      unless defined? current_user
-        redirect_back(fallback_location: root_path)
-        return
-      end
-
-      if current_user.nil?
-        redirect_back(fallback_location: root_path)
-        return
-      end
-
-      if current_user.id != @organization.user_id
-        redirect_back(fallback_location: root_path)
-      end
-    end
+    # def auth_edit
+    #   unless defined? current_user
+    #     redirect_back(fallback_location: root_path)
+    #     return
+    #   end
+    #
+    #   if current_user.nil?
+    #     redirect_back(fallback_location: root_path)
+    #     return
+    #   end
+    #
+    #   if current_user.id != @organization.user_id
+    #     redirect_back(fallback_location: root_path)
+    #   end
+    # end
 
     # Only allow a trusted parameter "white list" through.
     def organization_params
