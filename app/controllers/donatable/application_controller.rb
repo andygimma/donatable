@@ -18,7 +18,11 @@ module Donatable
     end
 
     def set_current_user
-      @current_user = current_user
+      @current_user
+      if defined? current_user
+        @current_user = current_user
+      end
+      @current_user
     end
   end
 end
