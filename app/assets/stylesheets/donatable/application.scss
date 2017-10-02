@@ -3,9 +3,11 @@
 /* ----------------------------- */
 
 @import "bootstrap";
-@import "modules/color_palette";
-@import "styles";
 @import "font-awesome";
+@import "modules/color_palette";
+@import "modules/kaminari";
+@import "organizations";
+
 
 /* ----------------------------- */
 /*         GLOBAL STYLES         */
@@ -43,7 +45,7 @@ nav {
         padding-bottom:0;
     }
     .nav-item {
-        transition: .25s ease-in-out all;
+        transition: .15s ease-in-out all;
         color: $mono-1;
         border-bottom: 3px solid transparent;
         &:hover {
@@ -52,7 +54,7 @@ nav {
         }
     }
     .nav-link {
-        transition: .25s ease-in-out color;
+        transition: .15s ease-in-out color;
     }
     .nav-item:hover > .nav-link {
         color: $mono-4!important;
@@ -97,12 +99,20 @@ body {
 .alert {
     width: 100%;
 }
+.required {
+    float: left;
+    clear:both;
+    color: darkred;
+    font-size: small;
+    padding: 0 20px;
+}
 
 // links
 a {
     color: $blue-4;
+    transition: 0.15s ease-in-out all;
     &:hover {
-        color: $blue-5;
+        color: $blue-3;
         text-decoration: none;
         cursor: pointer;
     }
@@ -130,6 +140,14 @@ a {
         color: #fff;
     }
 }
+.btn-outline-warning {
+    color: $orange-1;
+    border-color: $orange-1;
+    &:hover {
+        background-color: $orange-1;
+        color: #fff;
+    }    
+}
 .btn-secondary {
     background-color: $mono-2;
     border-color: $mono-1;
@@ -139,50 +157,21 @@ a {
     }
 }
 
-// forms
-.rounded-form {
-    float: left;
-    margin-top: 20px;
-    width: 75%;
-    & .field {
-        float: left;
-        margin-bottom: 20px;
-        width: 100%;
+// accordions
+.card-header {
+    background-color: $mono-1;
+    border-bottom: 1px solid $mono-2;
+    color: $mono-4;
+    & a {
+        color: $mono-4;
+        transition: 0.15s ease-in-out all;
+        &:hover {
+            color: $mono-3;
+        }
     }
-    & label {
-        text-transform: uppercase;
-        font-size: 1.1rem;
-        float: left;
-        clear:both;
+    & .more-less {
+        float: right;
     }
-    & input, textarea {
-        float: left;
-        clear: both;
-        width: 100%;
-    }
-    input {
-        height: 45px;
-        padding: 5px;
-    }
-    & textarea {
-        min-height: 200px;
-    }
-    & .actions {
-        float: left;
-        margin-top: 20px;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .rounded-form {
-        width: 100%;
-    }
-}
-
-// tables
-table {
-    width: 100%;
 }
 
 // footer
@@ -217,7 +206,7 @@ footer {
             width: 50px;
             vertical-align: center;
             text-align: center;
-            transition: all ease-in-out .5s;
+            transition: all ease-in-out .15s;
         }
         & i:hover {
             background: $orange-2;

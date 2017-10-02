@@ -1,0 +1,176 @@
+/* ----------------------------- */
+/*          ORG /INDEX            */
+/* ----------------------------- */
+
+
+// search bar
+.search_jumbotron {
+    padding: 2rem;
+}
+
+.org_search {
+    & input {
+        width: 100%!important;
+        margin-bottom: 10px;
+        padding: 25px;
+        font-size: x-large;
+        color: $mono-2;
+    }
+    & .btn {
+        padding: 25px;
+        margin-top: -10px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .org_search {
+        & input {
+            padding: 15px;
+            font-size: large;
+        }
+        & .btn {
+            padding: 12.5px;
+            font-size: large;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .org_search {
+        & input {
+            padding: 15px;
+            font-size: small;
+        }
+    }
+}
+
+// org cards
+.org_card {
+    box-shadow: 2px 2px 5px $mono-4;
+    margin-bottom: 10px;
+    padding: 20px;
+    transition: 0.15s ease-in-out all;
+    & .org_name {
+        font-size: large;
+        font-weight: bold;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &:hover {
+        background-color: $mono-5;
+    }
+}
+
+//tags
+.tag {
+
+}
+
+/* ----------------------------- */
+/*          ORG /SHOW            */
+/* ----------------------------- */
+
+.org_logo_container {
+    & img {
+        background-color: $mono-4;
+        padding: 40px;
+        border-radius: 50%;
+        border: 5px solid $mono-3;
+    }
+}
+
+.org_featured_img_container {
+    width: 100%;
+    margin-bottom: 20px;
+    & img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.org_info {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    padding: 0 20px;
+    & span {
+        text-transform: none;
+        color: $mono-2;
+        font-size: 1rem;
+        opacity: 0.75;
+    }
+}
+
+a.skip-to {
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+a.skip-to:focus, a.skip-to-main:active {
+    text-align: center;
+    left: 0;
+    width: 10%;
+    height: auto;
+    overflow:auto;
+    margin: 10px 35%;
+    margin-left: 20px;
+    z-index:999;
+    color: #605f5f;
+}
+
+
+/* ----------------------------- */
+/*          ORG /_FORM           */
+/* ----------------------------- */
+
+// org form
+.rounded-form {
+    float: left;
+    margin-top: 20px;
+    width: 75%;
+    & .field {
+        float: left;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 0 20px;
+    }
+    & label {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        float: left;
+        clear:both;
+    }
+    & input, textarea {
+        float: left;
+        clear: both;
+        width: 100%;
+    }
+    input {
+        height: 45px;
+        padding: 5px;
+    }
+    & textarea {
+        min-height: 200px;
+    }
+    & select {
+        float: left;
+        clear: both;
+        padding: 15px;
+    }
+    & .actions {
+        float: left;
+        margin-top: 20px;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .rounded-form {
+        width: 100%;
+    }
+}
+

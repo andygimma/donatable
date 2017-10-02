@@ -1,0 +1,29 @@
+/* ----------------------------- */
+/*          PAGINATION           */
+/* ----------------------------- */
+
+.pagination {
+    & .page, .next, .last, .first, .prev {
+        padding: 5px 10px;
+        margin-right: 5px;
+        background-color: $mono-2;
+        transition: 0.15s ease-in-out all;
+        border: 1px solid $mono-1;
+        color: $mono-3;
+        &:hover {
+            background-color: $mono-1;
+            cursor: pointer;
+        }
+        & a {
+            color: $mono-4;
+            background-color: transparent;
+            width: inherit;
+            height: inherit;
+        }
+    }
+    & .current {
+        color: $mono-2;
+        background-color: $mono-3;
+    }    
+    
+}

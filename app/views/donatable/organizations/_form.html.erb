@@ -1,4 +1,5 @@
-<%= form_with(model: organization, local: true, class: 'rounded-form') do |form| %>
+<!-- Error Message -->
+ <%= form_with(model: organization, local: true, class: 'rounded-form') do |form| %>
   <% if organization.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
@@ -11,91 +12,166 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :language %><br>
-    <%= form.select :language, [ 'es', 'en'], :prompt => 'Select One' %>
+    <!-- FORM ACCORDION -->
 
-  </div>
+    <!-- Basic Information Start -->
+    <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
+      <div class="card">
+        <div class="card-header" role="tab" id="headingOne">
+          <h5 class="mb-0">
+            <!--  
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            -->
+              BASIC INFORMATION*
+            <!-- </a> -->
+          </h5>
+        </div>
 
+        <!--
+        <div id="collapseOne" class="show" role="tabpanel" aria-labelledby="headingOne">
+        -->
+        <div>
+          <div class="card-block">
+              <br>
+              <div class="field">
+                <%= form.label :name %><br>
+                <%= form.text_field :name, id: :organization_name %>
+              </div>
 
-  <div class="field">
-    <%= form.label :name %><br>
-    <%= form.text_field :name, id: :organization_name %>
-  </div>
+              <div class="field">
+                <%= form.label :language %>
+                <%= form.select :language, [ 'es', 'en'], :prompt => 'Select One' %>
+              </div>          
 
-  <div class="field">
-    <%= form.label :website %><br>
-    <%= form.text_field :website, id: :organization_website %>
-  </div>
+              <div class="field">
+                <%= form.label :website %><br>
+                <%= form.text_field :website, id: :organization_website %>
+              </div>
 
-  <div class="field">
-    <%= form.label :tag_list %><br>
-    <%= form.text_field :tag_list, value: organization.tag_list.join(', ') %>
-  </div>
+              <div class="field">
+                <%= form.label :email %><br>
+                <%= form.text_field :email, id: :organization_email %>
+              </div>          
 
-  <div class="field">
-    <%= form.label :short_description %><br>
-    <%= form.text_field :short_description, id: :organization_short_description %>
-  </div>
+              <div class="field">
+                <%= form.label :short_description %><br>
+                <%= form.text_field :short_description, id: :organization_short_description %>
+              </div>
 
-  <div class="field">
-    <%= form.label :long_description %><br>
-    <%= form.text_area :long_description, id: :organization_long_description %>
-  </div>
+              <div class="field">
+                <%= form.label :long_description %><br>
+                <%= form.text_area :long_description, id: :organization_long_description %>
+              </div>
 
-  <div class="field">
-    <%= form.label :email %><br>
-    <%= form.text_field :email, id: :organization_email %>
-  </div>
+              <div class="field">
+                <%= form.label :tag_list %><br>
+                <%= form.text_field :tag_list, value: organization.tag_list.join(', ') %>
+              </div>         
 
-  <div class="field">
-    <%= form.label :phone %><br>
-    <%= form.text_field :phone, id: :organization_phone %>
-  </div>
+              <div class="field">
+                    <%= form.label :featured_image %><br>
+                    <p class="required" style="padding:0;">Featured images should be at least 825 pixels wide, and follow a 4:3 ratio (i.e. 825px by 619px)</p>
+                    <%= form.file_field :featured_image, id: :organization_main_image %>
+              </div>
 
-  <div class="field">
-    <%= form.label :main_image %><br>
-    <%= form.file_field :main_image, id: :organization_main_image %>
-  </div>
+              <div class="field">
+                    <%= form.label :logo_image %><br>
+                    <p class="required" style="padding:0;">Use your brand's logo icon only, as a 1:1 ratio image (i.e., 200px by 200px)</p>
+                    <%= form.file_field :logo_image, id: :organization_logo_image %>
+              </div> 
+              
+              <p class="required">(*) Required information</p>
+          </div>
+        </div>
+      </div>
+    <!-- Basic Information End ---->
 
-  <div class="field">
-    <%= form.label :logo_image %><br>
-    <%= form.file_field :logo_image, id: :organization_logo_image %>
-  </div>
+    <!-- Contact Information Start -->    
+      <div class="card">
+        <div class="card-header" role="tab" id="headingTwo">
+          <h5 class="mb-0">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <i class="more-less fa fa-plus"></i>
+              ADDITIONAL CONTACT INFORMATION
+            </a>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="card-block">
+              <br>
+              <div class="field">
+                <%= form.label :phone %><br>
+                <%= form.text_field :phone, id: :organization_phone %>
+              </div>
 
-  <div class="field">
-    <%= form.label :youtube_url %><br>
-    <%= form.text_field :youtube_url, id: :organization_youtube_url %>
-  </div>
+              <div class="field">
+                <%= form.label :city %><br>
+                <%= form.text_field :city, id: :organization_city %>
+              </div>
 
-  <div class="field">
-    <%= form.label :twitter %><br>
-    <%= form.text_field :twitter, id: :organization_twitter %>
-  </div>
+              <div class="field">
+                <%= form.label :state_or_district %><br>
+                <%= form.text_field :state_or_district, id: :organization_state_or_district %>
+              </div>
 
-  <div class="field">
-    <%= form.label :facebook %><br>
-    <%= form.text_field :facebook, id: :organization_facebook %>
-  </div>
+              <div class="field">
+                <%= form.label :country %><br>
+                <%= form.text_field :country, id: :organization_country %>
+              </div>
+          </div>
+        </div>
+      </div>
+    <!-- Contact Information End ---->    
 
-  <div class="field">
-    <%= form.label :city %><br>
-    <%= form.text_field :city, id: :organization_city %>
-  </div>
+    <!-- Social Media Start -->        
+      <div class="card">
+        <div class="card-header" role="tab" id="headingThree">
+          <h5 class="mb-0">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <i class="more-less fa fa-plus"></i>
+              SOCIAL MEDIA
+            </a>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="card-block">
+              <br>
+              <div class="field">
+                <%= form.label :facebook %><br>
+                <%= form.text_field :facebook, id: :organization_facebook %>
+              </div>          
 
-  <div class="field">
-    <%= form.label :state_or_district %><br>
-    <%= form.text_field :state_or_district, id: :organization_state_or_district %>
-  </div>
+              <div class="field">
+                <%= form.label :twitter %><br>
+                <%= form.text_field :twitter, id: :organization_twitter %>
+              </div>
 
-  <div class="field">
-    <%= form.label :country %><br>
-    <%= form.text_field :country, id: :organization_country %>
-  </div>
+              <div class="field">
+                <%= form.label :youtube_url %><br>
+                <%= form.text_field :youtube_url, id: :organization_youtube_url %>
+              </div>          
 
-  <div class="actions">
-    <%= button_tag(type: 'submit', class: 'btn btn-success') do %>
-      <i class="fa fa-plus-circle"></i> Create Org
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Social Media End ---->    
+
+  <div class="actions col-lg-4 col-md-4 col-sm-12">
+    <%= button_tag(type: 'submit', class: 'btn btn-success btn-lg btn-block') do %>
+      <i class="fa fa-plus-circle"></i> Submit
     <% end %>
   </div>
+
+<script type="text/javascript">
+// Add open/close icons toggle feature to form accordion
+    function toggleIcon(e) {
+    $(e.target)
+        .prev('.card-header')
+        .find(".more-less")
+        .toggleClass('fa-plus fa-minus');
+    }
+    $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+    $('.panel-group').on('shown.bs.collapse', toggleIcon);
+</script>
 <% end %>
