@@ -19,7 +19,7 @@ module Donatable
         ActiveRecord::Base.connection.select_all(sql).each do |org|
           org_ids << org['taggable_id']
         end
-        @organizations = Kaminari.paginate_array(Organization.where(language: cookies[:locale].to_s).find(org_ids)).page(params[:page])
+        @organizations = Kaminari.paginate_array(Organization.where(language: cookies[:locale].to_s, id: org_ids)).page(params[:page])
 
 
       else
