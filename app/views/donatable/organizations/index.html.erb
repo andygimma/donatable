@@ -3,15 +3,16 @@
 <% end %>
 
 <% content_for :jumbotron do %>
-    <div class="jumbotron">
+    <div class="jumbotron search_jumbotron">
         <div class="container">
-          <p class="lead">
-              <p>Our powerful search engine can search through full text, not just keywords. It also can make sense of many typos. Best of all, it's multilingual.
-              <form class="form-group org_search">
-                <input class="form-control col-lg-10 col-md-10 col-sm-12" id="search" name="search" type="text" placeholder="Type keywords here and click button below to search" aria-label="Search" />
-                <button class="btn btn-secondary btn-block btn-lg" type="submit"><i class="fa fa-search"></i> Search</button>
+              <form class="form-inline org_search">
+                <div class="col-lg-9 col-md-9 col-sm-12">  
+                    <input class="form-control" id="search" name="search" type="text" placeholder="Type keywords here and click button below to search" aria-label="Search" />
+                  </div>
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <button class="btn btn-secondary btn-lg btn-block" type="submit"><i class="fa fa-search"></i> Search</button>
+                </div>    
               </form>
-          </p>
         </div>
     </div>
 <% end %>

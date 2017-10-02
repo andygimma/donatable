@@ -3,15 +3,21 @@
 /* ----------------------------- */
 
 // search bar
+.search_jumbotron {
+    padding: 2rem;
+}
+
 .org_search {
     & input {
+        width: 100%!important;
         margin-bottom: 10px;
         padding: 25px;
         font-size: x-large;
         color: $mono-2;
     }
     & .btn {
-        width: 25%;
+        padding: 25px;
+        margin-top: -10px;
     }
 }
 
@@ -19,6 +25,10 @@
     .org_search {
         & input {
             padding: 15px;
+            font-size: large;
+        }
+        & .btn {
+            padding: 12.5px;
             font-size: large;
         }
     }
