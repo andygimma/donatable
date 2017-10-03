@@ -5,10 +5,17 @@
 <% content_for :jumbotron do %>
     <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3"><%= @organization.name %></h1>
-          <p class="lead">
-            <%= @organization.short_description %>
-          </p>
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <h1 class="display-3"><%= @organization.name %></h1>
+                    <p class="lead">
+                        <%= @organization.short_description %>
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 org_logo_container" align="center">
+                        <%= image_tag @organization.logo_image(:logo), alt: 'Organization logo', tabindex: 0 %>
+                </div>
+            </div>
         </div>
     </div>
 <% end %>
@@ -16,72 +23,116 @@
 <% content_for :main do %>
     <div class="col-12 col-md-9 pull-md-3 bd-content">
         <p id="notice"><%= notice %></p>
+        <div class="org_featured_img_container">
+            <%= image_tag @organization.main_image(:medium), alt: 'Organization main image', tabindex: 0  %>
+        </div>
 
-        <%= image_tag @organization.main_image(:medium), alt: 'Organization main image', tabindex: 0 %>
-        <%= image_tag @organization.logo_image(:logo), alt: 'Organization logo', tabindex: 0 %>
-
-        <p class="org_info">
+        <p class="org_info" style="padding:0;">
           Long description:<br>
           <span><%= @organization.long_description %></span>
         </p>
+        
+        <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
+        <!-- Contact Information Start -->    
+          <div class="card">
+            <div class="card-header" role="tab" id="headingOne">
+              <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  <i class="more-less fa fa-plus"></i>
+                  CONTACT INFORMATION
+                </a>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="card-block">
+                  <br>
+                    <p class="org_info">
+                      Website:<br>
+                      <span><a href="<%= @organization.website %>"><%= @organization.website %></a></span>
+                    </p>
 
-        <p class="org_info">
-          Website:<br>
-          <span><a href="<%= @organization.website %>"><%= @organization.website %></a></span>
-        </p>
+                    <p class="org_info">
+                      Email:<br>
+                      <span><%= @organization.email %></span>
+                    </p>
 
-        <p class="org_info">
-          Twitter:<br>
-          <span><%= @organization.twitter %></span>
-        </p>
+                    <p class="org_info">
+                      Phone:<br>
+                      <span><%= @organization.phone %></span>
+                    </p>
 
-        <p class="org_info">
-          Facebook:<br>
-          <span><%= @organization.facebook %></span>
-        </p>
+                    <p class="org_info">
+                      City:<br>
+                      <span><%= @organization.city %></span>
+                    </p>
 
-        <p class="org_info">
-          Phone:<br>
-          <span><%= @organization.phone %></span>
-        </p>
+                    <p class="org_info">
+                      State or district:<br>
+                      <span><%= @organization.state_or_district %></span>
+                    </p>
 
-        <p class="org_info">
-          City:<br>
-          <span><%= @organization.city %></span>
-        </p>
+                    <p class="org_info">
+                      Country:<br>
+                      <span><%= @organization.country %></span>
+                    </p>
 
-        <p class="org_info">
-          State or district:<br>
-          <span><%= @organization.state_or_district %></span>
-        </p>
+              </div>
+            </div>
+          </div>
+        <!-- Contact Information End ---->    
 
-        <p class="org_info">
-          Country:<br>
-          <span><%= @organization.country %></span>
-        </p>
+        <!-- Social Media Start -->        
+          <div class="card">
+            <div class="card-header" role="tab" id="headingTwo">
+              <h5 class="mb-0">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <i class="more-less fa fa-plus"></i>
+                  SOCIAL MEDIA
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="card-block">
+                  <br>
+                  
+                    <p class="org_info">
+                      Facebook:<br>
+                      <span><%= @organization.facebook %></span>
+                    </p>
+                    
+                    <p class="org_info">
+                      Twitter:<br>
+                      <span><%= @organization.twitter %></span>
+                    </p>
+                  
+                    <p class="org_info">
+                      Youtube:<br>
+                      <span><%= @organization.youtube_url %></span>
+                    </p>
 
-        <p class="org_info">
-          Email:<br>
-          <span><%= @organization.email %></span>
-        </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Social Media End ----> 
 
-        <p class="org_info">
-          Youtube:<br>
-          <span><%= @organization.youtube_url %></span>
-        </p>
+        
     </div>
     <div class="col-12 col-md-3 push-md-9 bd-sidebar">
         <h3>More Info</h3>
-        <img src="http://via.placeholder.com/400x300" width="100%" height="auto" alt="placeholder" tabindex="0" />
+        <p>Here you can view all of the data for <%= @organization.name %>.</p>
+        <p>Use the links below to find similar organizations, or to edit this entry.</p>
         <hr/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <%#= render 'layouts/donatable/sidebar' %>
+        <h4>Organization Tags</h4>
+        <%= @organization.tag_list %>
         <hr/>
         <h4>Similar Organizations</h4>
         <% @organization.find_related_tags.each do |organization| %>
-          <%= link_to organization.name, organization_path(organization) %> <br/>
+          <i class="fa fa-arrow-right"></i> <%= link_to organization.name, organization_path(organization) %> <br/>
         <% end %>
         <hr/>
+        <h4>Quick Links</h4>
         <% if Rails.application.routes.url_helpers.method_defined?(:destroy_user_session_path) %>
           <% if current_user %>
             <%= link_to edit_organization_path(@organization), class: 'btn btn-warning btn-block' do %>
@@ -93,4 +144,16 @@
             <i class="fa fa-arrow-circle-left"></i> Back to Search
         <% end %>
     </div>
+
+<script type="text/javascript">
+// Add open/close icons toggle feature to form accordion
+    function toggleIcon(e) {
+    $(e.target)
+        .prev('.card-header')
+        .find(".more-less")
+        .toggleClass('fa-plus fa-minus');
+    }
+    $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+    $('.panel-group').on('shown.bs.collapse', toggleIcon);
+</script>
 <% end %>

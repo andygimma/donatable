@@ -18,41 +18,39 @@
 <% end %>
 
 <% content_for :main do %>
-<div class="col-12 col-md-12 pull-md-12 bd-content">
+<div class="col-12 col-md-9 pull-md-3 bd-content">
     <p id="notice"><%= notice %></p>
-        <table class="table">
-          <thead class="thead-default">
-            <tr>
-                <th>Logo</th>
-                <th>Name</th>
-                <th>Language</th>
-                <th>Website</th>
-                <th>Short description</th>
-                <th>Tags</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            <% @organizations.each do |organization| %>
-              <tr>
-                <td><%= image_tag organization.logo_image(:logo), alt: 'Organization logo', tabindex: 0 %></td>
-                <td><%= link_to organization.name, organization_path(organization) %></td>
-                <td><%= organization.language %></td>
-                <td><%= organization.website %></td>
-                <td><%= organization.short_description %></td>
-                <td>
-                  <% organization.tag_list.each do |tag|%>
-                    <%= link_to tag, "/organizations/?tag=#{tag}", class: 'tag' %>
-                  <% end %>
-
-                </td>
-              </tr>
-              <tr>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+            <div class="container">
+                <% @organizations.each do |organization| %>
+                <div class="row org_card">
+                    <div class="col-2">
+                        <%= image_tag organization.logo_image(:logo), alt: 'Organization logo', tabindex: 0 %>
+                    </div>
+                    <div class="col-9">
+                        <%= link_to organization.name, organization_path(organization), class: 'org_name' %><br>
+                        <i class="fa fa-globe"></i> <%= organization.website %><br>
+                        <i class="fa fa-commenting-o"></i> <%= organization.short_description %><br>
+                        <i class="fa fa-tags"></i> 
+                        <% organization.tag_list.each do |tag|%>
+                            <%= link_to tag, "/organizations/?tag=#{tag}", class: 'btn btn-outline-warning btn-sm' %>
+                        <% end %>
+                    </div>
+                    <div class="col-1">
+                        <%= organization.language %>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+    
         <%= paginate @organizations %>
-
+    
+</div>
+<div class="col-12 col-md-3 push-md-9 bd-sidebar">
+    <h3>More Info</h3>
+    <p>Use the search form above to find specific organizations that match your query.</p>
+    <p>Organizations matching your query will be listed next to this section, where you can view each organization by clicking on it's name.</p>
+    <hr/>
+    <h3>Tag Cloud</h3>
 </div>
 <% end %>
